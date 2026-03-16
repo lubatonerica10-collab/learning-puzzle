@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Environmental Health Learning Site</title>
+<style>
+body{
+font-family: Arial;
+text-align: center;
+background-color: #e8f5e9;
+}
+
+h1{
+color: green;
+}
+
+button{
+padding:10px;
+margin:10px;
+font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Environmental Health Awareness</h1>
+<h3>Grade 9 Learning Website</h3>
+
+<p>Welcome students! Choose a lesson below.</p>
+
+<button onclick="lesson1()">Lesson 1</button>
+<button onclick="quiz()">Quiz</button>
+
+<div id="content"></div>
+
+<script>
+
+function lesson1(){
+document.getElementById("content").innerHTML=
+"<h2>Lesson 1: Environmental Health</h2><p>Environmental health focuses on how the environment affects human health. Clean surroundings prevent diseases.</p>";
+}
+
+function quiz(){
+document.getElementById("content").innerHTML=
+"<h2>Quiz</h2><p>Question: Which helps protect environmental health?</p><p>A. Throwing garbage anywhere</p><p>B. Proper waste disposal</p>";
+}
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<title>Environmental Health Learning Site</title>
+<style>
+body{
+font-family: Arial;
+text-align: center;
+background-color: #e8f5e9;
+}
+
+h1{
+color: green;
+}
+
+button{
+padding:10px;
+margin:10px;
+font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Environmental Health Awareness</h1>
+<h3>Grade 9 Learning Website</h3>
+
+<p>Welcome students! Choose a lesson below.</p>
+
+<button onclick="lesson1()">Lesson 1</button>
+<button onclick="quiz()">Quiz</button>
+
+<div id="content"></div>
+
+<script>
+
+function lesson1(){
+document.getElementById("content").innerHTML=
+"<h2>Lesson 1: Environmental Health</h2><p>Environmental health focuses on how the environment affects human health. Clean surroundings prevent diseases.</p>";
+}
+
+function quiz(){
+document.getElementById("content").innerHTML=
+"<h2>Quiz</h2><p>Question: Which helps protect environmental health?</p><p>A. Throwing garbage anywhere</p><p>B. Proper waste disposal</p>";
+}
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Puzzle Game</title>
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+}
+
+#puzzle{
+    width: 300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+}
+
+.tile{
+    width: 100px;
+    height: 100px;
+    background: #4CAF50;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.empty{
+    background: lightgray;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🧩 Sliding Puzzle Game</h2>
+<p>Click the tiles to arrange numbers 1–8</p>
+
+<div id="puzzle"></div>
+
+<script>
+
+let puzzle = [1,2,3,4,5,6,7,8,""];
+
+function shuffle(){
+    puzzle.sort(()=>Math.random()-0.5);
+}
+
+function draw(){
+    let board = document.getElementById("puzzle");
+    board.innerHTML = "";
+
+    puzzle.forEach((num,i)=>{
+        let tile = document.createElement("div");
+        tile.className = "tile";
+
+        if(num === ""){
+            tile.classList.add("empty");
+        }else{
+            tile.innerText = num;
+            tile.onclick = ()=>move(i);
+        }
+
+        board.appendChild(tile);
+    });
+}
+
+function move(i){
+    let empty = puzzle.indexOf("");
+
+    let validMoves = [i-1,i+1,i-3,i+3];
+
+    if(validMoves.includes(empty)){
+        [puzzle[i],puzzle[empty]]=[puzzle[empty],puzzle[i]];
+        draw();
+    }
+}
+
+shuffle();
+draw();
+
+</script>
+
+</body>
+</html>
